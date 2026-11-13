@@ -1,4 +1,11 @@
 <!doctype html>
+<!--
+  ============================================================
+   DualSport · Sitio web oficial
+   Diseño y desarrollo: hazaads  —  https://hazaads.github.io
+   © 2026 hazaads. Todos los derechos reservados.
+  ============================================================
+-->
 <html lang="es">
 <head>
 <meta charset="utf-8">
@@ -11,12 +18,17 @@
 <link rel="icon" href="img/logo.webp" type="image/webp">
 <title>DualSport</title>
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
+<meta name="author" content="hazaads">
 <link rel="preload" as="image" href="img/logo.webp">
 <link rel="preload" as="image" href="img/grip-fs-blanca.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;1,700;1,800;1,900&family=Barlow:wght@400;500;600&display=swap">
 <style>
+/* ------------------------------------------------------------
+   DualSport · Hoja de estilos
+   Desarrollado por hazaads (https://hazaads.github.io)
+   ------------------------------------------------------------ */
 /* Layout: one long scroll — hero (copy + floating products), ticker, about + facts, story steps, filterable catalog grid, DM call-to-action. Brand is dark-only by choice. */
 :root{
   --ink:#0a0c0a;        /* page ground, slightly green black */
@@ -206,6 +218,9 @@ section.block{padding-block:96px}
 footer{border-top:1px solid var(--line);padding-block:28px;color:var(--mute);font-size:15px}
 footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
 footer img{height:34px;width:auto}
+.credit{width:100%;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:16px;font-size:14px}
+.credit a{color:var(--lime);text-decoration:none;font-weight:600}
+.credit a:hover{text-decoration:underline}
 
 /* ---------- opening intro ---------- */
 #intro{position:fixed;inset:0;z-index:100;display:grid;place-items:center;overflow:hidden;pointer-events:none;animation:intro-out .42s cubic-bezier(.55,0,.45,1) 1.68s both;will-change:transform}
@@ -354,10 +369,15 @@ footer img{height:34px;width:auto}
   <div class="wrap">
     <img src="img/logo.webp" alt="DualSport" width="640" height="382">
     <span>DualSport · Artículos deportivos · <a href="https://instagram.com/dualsp0rt" target="_blank" rel="noopener">@dualsp0rt</a></span>
+    <div class="credit"><span>© 2026 DualSport. Todos los derechos reservados.</span><span>Diseño y desarrollo por <a href="https://hazaads.github.io" target="_blank" rel="noopener">hazaads</a></span></div>
   </div>
 </footer>
 
 <script>
+/* ------------------------------------------------------------
+   DualSport · Catálogo, carrusel y animaciones
+   Desarrollado por hazaads (https://hazaads.github.io)
+   ------------------------------------------------------------ */
 const CATS = {futbol:"Fútbol", entreno:"Entrenamiento", vendajes:"Vendajes y tapes", cuidado:"Cuidado personal"};
 const P = [
   {name:"Grip Socks", cat:"futbol", desc:"Calcetas antideslizantes con puntos de agarre en la planta. El pie no se mueve dentro del zapato.",
