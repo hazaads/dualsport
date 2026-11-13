@@ -79,7 +79,7 @@ h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:.95}
 .eyebrow::before{content:"";width:28px;height:3px;background:var(--lime);transform:skewX(-30deg)}
 .hero h1{font-size:clamp(58px,8.4vw,112px);font-weight:900;font-style:italic;text-transform:uppercase;letter-spacing:-.01em;margin-top:16px}
 .hero h1 .l{color:var(--lime)}
-.hero h1 .w{display:block;clip-path:inset(0 -60vw 0 -20px)}
+.hero h1 .w{display:block;overflow:hidden;padding-right:.12em;margin-right:-.12em}
 .hero h1 .w span{display:inline-block;animation:rise .8s cubic-bezier(.2,.8,.2,1) both}
 .hero h1 .w:nth-child(2) span{animation-delay:.08s}
 .hero h1 .w:nth-child(3) span{animation-delay:.16s}
@@ -103,7 +103,7 @@ h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:.95}
 .slashes i:nth-child(1){bottom:6%;left:-4%;width:70%;animation-delay:.25s}
 .slashes i:nth-child(2){bottom:1%;left:-4%;width:46%;height:4px;opacity:.55;animation-delay:.38s}
 .slashes i:nth-child(3){top:20%;left:auto;right:-2%;width:40%;height:3px;opacity:.35;transform-origin:right center;animation-delay:.5s}
-@keyframes swoosh{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+@keyframes swoosh{from{transform:rotate(-23deg) scaleX(0)}to{transform:rotate(-23deg) scaleX(1)}}
 
 @media (max-width:860px){
   .hero .wrap{grid-template-columns:1fr}
@@ -112,9 +112,10 @@ h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:.95}
 
 /* ---------- ticker ---------- */
 .ticker-wrap{position:relative;overflow:hidden;padding-block:110px}
-.ticker{position:relative;z-index:2;background:var(--lime);color:var(--on-lime);overflow:hidden;transform:rotate(-2.6deg) scaleX(1.08);box-shadow:0 18px 40px -12px rgba(0,0,0,.7),0 0 60px -10px color-mix(in srgb,var(--lime) 55%,transparent)}
+.ticker{position:relative;z-index:2;background:var(--lime);color:var(--on-lime);overflow:hidden;transform:rotate(-2.6deg) scaleX(1.08);contain:paint}
+.ticker-wrap::before{content:"";position:absolute;left:0;right:0;top:50%;height:200px;transform:translateY(-50%);background:radial-gradient(60% 50% at 50% 50%,color-mix(in srgb,var(--lime) 16%,transparent),transparent 70%);pointer-events:none}
 .ticker::before,.ticker::after{content:"";display:block;height:10px;background:repeating-linear-gradient(-45deg,var(--on-lime) 0 12px,var(--lime) 12px 24px)}
-.ticker.back{position:absolute;left:0;right:0;top:50%;z-index:1;background:var(--on-lime);color:var(--lime);transform:translateY(-50%) rotate(7deg) scaleX(1.25);box-shadow:0 0 0 1px var(--line)}
+.ticker.back{position:absolute;left:0;right:0;top:50%;z-index:1;background:var(--on-lime);color:var(--lime);transform:translateY(-50%) rotate(7deg) scaleX(1.25)}
 @media (max-width:700px){.ticker-wrap{padding-block:130px}.ticker.back{transform:translateY(-50%) rotate(22deg) scaleX(1.7)}.ticker:not(.back){transform:rotate(-7deg) scaleX(1.15)}.ticker .tk{padding-block:6px}.ticker .tk b{font-size:24px}.ticker-sub{font-size:10px;padding-block:6px}.bk{font-size:17px;padding-block:7px}}
 .ticker.back::before,.ticker.back::after{height:8px;background:repeating-linear-gradient(45deg,var(--lime) 0 12px,var(--on-lime) 12px 24px)}
 #tkBack{animation:marquee-rev 54s linear infinite}
@@ -238,6 +239,7 @@ footer img{height:34px;width:auto}
 .intro-on .hero h1 .w:nth-child(2) span{animation-delay:1.93s}
 .intro-on .hero h1 .w:nth-child(3) span{animation-delay:2.01s}
 .intro-on .slashes i{animation-delay:2.1s}
+.tapes-wait .ticker-track,.tapes-wait .ticker-sub{animation-play-state:paused}
 
 /* scroll reveal: content stays visible, only slides into place */
 .rv{transition:transform .8s cubic-bezier(.2,.8,.2,1)}
@@ -253,7 +255,7 @@ footer img{height:34px;width:auto}
 </head>
 <body>
 <div id="intro" aria-hidden="true"><i></i><i></i><i></i><img src="img/logo.webp" alt=""></div>
-<script>document.documentElement.classList.add("intro-on");setTimeout(()=>{const e=document.getElementById("intro");if(e)e.remove();},2300);</script>
+<script>document.documentElement.classList.add("intro-on","tapes-wait");setTimeout(()=>{const e=document.getElementById("intro");if(e)e.remove();document.documentElement.classList.remove("tapes-wait");},2300);</script>
 <header class="nav" id="nav">
   <div class="wrap">
     <a class="nav-logo" href="#inicio" aria-label="DualSport, inicio"><img src="img/logo.webp" alt="DualSport" width="640" height="382"></a>
@@ -455,18 +457,22 @@ const counts = P.reduce((a, p) => (a[p.cat] = (a[p.cat] || 0) + 1, a), {});
   filters.appendChild(b);
 });
 
-/* ticker */
-const track = document.getElementById("ticker");
-const tk = P.map(p => {
-  const img = p.variants ? p.variants[0][1] : p.img;
-  return `<a class="tk" href="#catalogo" tabindex="-1"><b>${p.name}</b></a>`;
-}).join("");
-track.innerHTML = tk + tk;
-const sub = ["DualSport","Artículos deportivos","Pide por DM","@dualsp0rt"];
-const subHtml = Array(5).fill(sub).flat().map(t => `<span>${t}</span>`).join("");
-["tkTop","tkBot"].forEach(id => document.getElementById(id).innerHTML = subHtml + subHtml);
-const back = Array(4).fill(["Precaución","Zona de juego","DualSport","Alto rendimiento"]).flat().map(t => `<span class="bk">${t}</span>`).join("");
-document.getElementById("tkBack").innerHTML = back + back;
+/* ticker: each track holds only enough copies to cover the screen twice,
+   so the moving layers stay small (Firefox slows down with very wide layers) */
+function fillTrack(el, html, pxPerSec) {
+  el.innerHTML = html;
+  const need = Math.max(innerWidth, 800) * 1.8;
+  let set = html;
+  while (el.scrollWidth < need) { set += html; el.innerHTML = set; }
+  el.innerHTML = set + set;
+  el.style.animationDuration = (el.scrollWidth / 2 / pxPerSec).toFixed(1) + "s";
+}
+const tk = P.map(p => `<span class="tk"><b>${p.name}</b></span>`).join("");
+fillTrack(document.getElementById("ticker"), tk, 80);
+const subHtml = ["DualSport","Artículos deportivos","Pide por DM","@dualsp0rt"].map(t => `<span>${t}</span>`).join("");
+["tkTop","tkBot"].forEach(id => fillTrack(document.getElementById(id), subHtml, 60));
+const backHtml = ["Precaución","Zona de juego","DualSport","Alto rendimiento"].map(t => `<span class="bk">${t}</span>`).join("");
+fillTrack(document.getElementById("tkBack"), backHtml, 70);
 
 /* nav background on scroll */
 const nav = document.getElementById("nav");
