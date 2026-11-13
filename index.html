@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="DualSport: artículos deportivos. Grip socks, vendas, tapes, conos y bandas de entrenamiento. Pide por DM en Instagram @dualsp0rt.">
+<meta name="theme-color" content="#0a0c0a">
+<meta property="og:title" content="DualSport">
+<meta property="og:description" content="Artículos deportivos. Pide por DM en Instagram @dualsp0rt.">
+<meta property="og:image" content="img/logo.webp">
+<link rel="icon" href="img/logo.webp" type="image/webp">
+<title>DualSport</title>
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;1,700;1,800;1,900&family=Barlow:wght@400;500;600&display=swap">
+<style>
+/* Layout: one long scroll — hero (copy + floating products), ticker, about + facts, story steps, filterable catalog grid, DM call-to-action. Brand is dark-only by choice. */
+:root{
+  --ink:#0a0c0a;        /* page ground, slightly green black */
+  --panel:#121512;      /* cards and bands */
+  --panel-2:#232a22;
+  --line:#252a25;
+  --lime:#8cff1a;       /* DualSport green */
+  --lime-deep:#5fc400;
+  --chalk:#f1f4ee;      /* white of the logo */
+  --mute:#cfd6cb;
+  --on-lime:#0a0c0a;
+  --display:"Barlow Condensed","Arial Narrow","Helvetica Neue",Arial,sans-serif;
+  --body:"Barlow","Helvetica Neue",Arial,sans-serif;
+  --radius:14px;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+html,body{overflow-x:clip}
+body{background:var(--ink);color:var(--chalk);font-family:var(--body);font-size:17px;line-height:1.55}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--ink)}
+a{color:inherit}
+img{max-width:100%;display:block}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:.95}
+:focus-visible{outline:3px solid var(--lime);outline-offset:3px;border-radius:6px}
+
+/* ---------- nav ---------- */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
+.nav.solid{background:color-mix(in srgb,var(--ink) 88%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-color:var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
+.nav-logo img{height:40px;width:auto}
+.nav-links{display:flex;gap:26px;align-items:center;font-family:var(--display);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:16px}
+.nav-links a{text-decoration:none;color:var(--mute);transition:color .2s}
+.nav-links a:hover{color:var(--chalk)}
+.nav-links a.btn,.nav-links a.btn:hover{color:var(--on-lime)}
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--display);font-weight:800;font-style:italic;text-transform:uppercase;letter-spacing:.04em;text-decoration:none;border:0;cursor:pointer;background:var(--lime);color:var(--on-lime);padding:12px 22px 11px;clip-path:polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%);font-size:17px;transition:transform .2s,background .2s}
+.btn:hover{background:var(--chalk);transform:translateY(-2px)}
+.btn svg{width:18px;height:18px}
+.nav .btn{padding:9px 18px 8px;font-size:15px}
+@media (max-width:720px){.nav-links a:not(.btn){display:none}}
+
+/* ---------- hero ---------- */
+.hero{position:relative;overflow:hidden;padding-block:40px 70px}
+.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:30px;align-items:center;position:relative;z-index:2}
+.hero-copy{min-width:0}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--display);font-weight:700;font-style:italic;text-transform:uppercase;letter-spacing:.14em;color:var(--lime);font-size:15px}
+.eyebrow::before{content:"";width:28px;height:3px;background:var(--lime);transform:skewX(-30deg)}
+.hero h1{font-size:clamp(58px,9vw,124px);font-weight:900;font-style:italic;text-transform:uppercase;letter-spacing:-.01em;margin-top:16px}
+.hero h1 .l{color:var(--lime)}
+.hero h1 .w{display:block;overflow:hidden}
+.hero h1 .w span{display:inline-block;animation:rise .8s cubic-bezier(.2,.8,.2,1) both}
+.hero h1 .w:nth-child(2) span{animation-delay:.08s}
+.hero h1 .w:nth-child(3) span{animation-delay:.16s}
+@keyframes rise{from{transform:translateY(105%)}to{transform:none}}
+.hero p.lead{color:var(--chalk);font-size:19px;max-width:30em;margin:22px 0 30px}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.ghost{font-family:var(--display);font-weight:700;text-transform:uppercase;letter-spacing:.06em;text-decoration:none;padding:11px 4px;border-bottom:2px solid var(--line);transition:border-color .2s}
+.ghost:hover{border-color:var(--lime)}
+
+.stage{position:relative;aspect-ratio:1/1;max-width:100%}
+.stage::before{content:"";position:absolute;inset:8% 6%;border-radius:50%;background:radial-gradient(circle at 50% 55%,color-mix(in srgb,var(--lime) 22%,transparent),transparent 62%);filter:blur(10px)}
+.stage img{position:absolute;filter:drop-shadow(0 26px 30px rgba(0,0,0,.6));animation:float 6s ease-in-out infinite}
+.stage .s1{width:62%;left:20%;top:12%;z-index:2}
+.stage .s2{width:44%;left:0;bottom:8%;z-index:3;animation-delay:-2s}
+.stage .s3{width:40%;right:0;bottom:12%;z-index:1;animation-delay:-4s}
+.stage .logo-badge{position:absolute;right:4%;top:2%;width:30%;z-index:4;animation:float 7s ease-in-out infinite reverse;filter:drop-shadow(0 0 24px color-mix(in srgb,var(--lime) 45%,transparent))}
+@keyframes float{0%,100%{translate:0 0;rotate:0deg}50%{translate:0 -14px;rotate:-1.5deg}}
+
+.slashes{position:absolute;inset:0;z-index:1;pointer-events:none}
+.slashes i{position:absolute;height:10px;background:var(--lime);transform:rotate(-23deg);transform-origin:left center;left:-10%;border-radius:2px;animation:swoosh 1.2s cubic-bezier(.2,.8,.2,1) both}
+.slashes i:nth-child(1){bottom:6%;left:-4%;width:70%;animation-delay:.25s}
+.slashes i:nth-child(2){bottom:1%;left:-4%;width:46%;height:4px;opacity:.55;animation-delay:.38s}
+.slashes i:nth-child(3){top:20%;left:auto;right:-2%;width:40%;height:3px;opacity:.35;transform-origin:right center;animation-delay:.5s}
+@keyframes swoosh{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+
+@media (max-width:860px){
+  .hero .wrap{grid-template-columns:1fr}
+  .stage{max-width:520px;width:100%;margin:0 auto}
+}
+
+/* ---------- ticker ---------- */
+.ticker-wrap{position:relative;overflow:hidden;padding-block:110px}
+.ticker{position:relative;z-index:2;background:var(--lime);color:var(--on-lime);overflow:hidden;transform:rotate(-2.6deg) scaleX(1.08);box-shadow:0 18px 40px -12px rgba(0,0,0,.7),0 0 60px -10px color-mix(in srgb,var(--lime) 55%,transparent)}
+.ticker::before,.ticker::after{content:"";display:block;height:10px;background:repeating-linear-gradient(-45deg,var(--on-lime) 0 12px,var(--lime) 12px 24px)}
+.ticker.back{position:absolute;left:0;right:0;top:50%;z-index:1;background:var(--on-lime);color:var(--lime);transform:translateY(-50%) rotate(7deg) scaleX(1.25);box-shadow:0 0 0 1px var(--line)}
+@media (max-width:700px){.ticker-wrap{padding-block:130px}.ticker.back{transform:translateY(-50%) rotate(22deg) scaleX(1.7)}.ticker:not(.back){transform:rotate(-7deg) scaleX(1.15)}.ticker .tk{padding-block:6px}.ticker .tk b{font-size:24px}.ticker-sub{font-size:10px;padding-block:6px}.bk{font-size:17px;padding-block:7px}}
+.ticker.back::before,.ticker.back::after{height:8px;background:repeating-linear-gradient(45deg,var(--lime) 0 12px,var(--on-lime) 12px 24px)}
+#tkBack{animation:marquee-rev 54s linear infinite}
+.bk{display:flex;align-items:center;gap:26px;padding:10px 26px;white-space:nowrap;font-family:var(--display);font-weight:900;font-style:italic;text-transform:uppercase;font-size:22px;letter-spacing:.1em}
+.bk::after{content:"";width:14px;height:14px;background:var(--lime);clip-path:polygon(40% 0,100% 0,60% 100%,0 100%)}
+.ticker-sub{display:flex;width:max-content;animation:marquee-rev 38s linear infinite;font-family:var(--display);font-weight:800;font-style:italic;text-transform:uppercase;letter-spacing:.2em;font-size:13px;line-height:1;opacity:.72;padding-block:8px}
+#tkTop{border-bottom:1px solid color-mix(in srgb,var(--on-lime) 22%,transparent)}
+#tkBot{border-top:1px solid color-mix(in srgb,var(--on-lime) 22%,transparent)}
+.ticker-sub span{padding:0 18px;white-space:nowrap}
+.ticker-sub span::after{content:"/";margin-left:36px;opacity:.6}
+@keyframes marquee-rev{from{transform:translateX(-50%)}to{transform:none}}
+.ticker-track{display:flex;width:max-content;animation:marquee 46s linear infinite}
+.tk{display:flex;align-items:center;gap:18px;padding:12px 30px;white-space:nowrap;text-decoration:none;color:inherit;position:relative}
+.tk::after{content:"";position:absolute;right:-6px;top:50%;width:16px;height:16px;margin-top:-8px;background:var(--on-lime);clip-path:polygon(40% 0,100% 0,60% 100%,0 100%)}
+.tk-img{width:104px;height:84px;display:grid;place-items:center;background:var(--ink);border-radius:50%;flex:none;box-shadow:inset 0 0 0 3px var(--on-lime)}
+.tk img{max-width:78px;max-height:62px;width:auto;height:auto;filter:drop-shadow(0 6px 8px rgba(0,0,0,.5));animation:spin 6s ease-in-out infinite}
+.tk:nth-child(odd) img{animation-delay:-3s}
+.tk b{font-family:var(--display);font-weight:900;font-style:italic;text-transform:uppercase;font-size:30px;letter-spacing:.01em;line-height:1}
+.tk small{display:block;font-family:var(--display);font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:13px;opacity:.75;margin-top:4px}
+@keyframes spin{0%,100%{transform:rotate(-8deg) scale(1)}50%{transform:rotate(8deg) scale(1.1)}}
+@media (max-width:600px){.tk-img{width:84px;height:68px}.tk img{max-width:62px;max-height:50px}.tk b{font-size:24px}}
+@keyframes marquee{to{transform:translateX(-50%)}}
+
+/* ---------- sections ---------- */
+section.block{padding-block:96px}
+.sec-head{display:flex;flex-direction:column;gap:14px;margin-bottom:44px}
+.sec-head h2{font-size:clamp(44px,6vw,76px);font-weight:900;font-style:italic;text-transform:uppercase}
+.sec-head h2 em{font-style:inherit;color:var(--lime)}
+.sec-head p{color:var(--mute);max-width:36em;margin:0}
+
+.about{display:grid;grid-template-columns:1.2fr 1fr;gap:56px;align-items:start}
+.about-text{min-width:0}
+.about-text p{font-size:19px;margin:0 0 18px;max-width:34em}
+.about-text p strong{color:var(--lime);font-weight:600}
+.facts{display:grid;gap:14px}
+.fact{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:20px 24px;display:flex;align-items:baseline;gap:18px}
+.fact b{font-family:var(--display);font-weight:900;font-style:italic;font-size:58px;line-height:1;color:var(--lime);min-width:1.6ch;font-variant-numeric:tabular-nums}
+.fact span{font-family:var(--display);font-weight:700;text-transform:uppercase;letter-spacing:.05em;font-size:19px;line-height:1.15}
+.fact small{display:block;font-family:var(--body);text-transform:none;letter-spacing:0;font-weight:400;color:var(--mute);font-size:15px;margin-top:4px}
+@media (max-width:860px){.about{grid-template-columns:1fr;gap:36px}}
+
+.story{background:var(--panel);border-block:1px solid var(--line)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;position:relative}
+.step{padding:28px 28px 8px 0;position:relative;min-width:0}
+.step::before{content:"";display:block;height:3px;background:var(--line);margin-bottom:26px}
+.step::after{content:"";position:absolute;top:-6px;left:0;width:15px;height:15px;background:var(--lime);transform:skewX(-20deg)}
+.step:last-child::before{background:linear-gradient(90deg,var(--line),var(--lime))}
+.step .tag{font-family:var(--display);font-weight:700;font-style:italic;text-transform:uppercase;letter-spacing:.12em;color:var(--lime);font-size:15px}
+.step h3{font-size:36px;font-weight:800;font-style:italic;text-transform:uppercase;margin:8px 0 12px}
+.step p{color:var(--mute);margin:0;max-width:24em}
+@media (max-width:860px){.steps{grid-template-columns:1fr}.step{padding-right:0;padding-bottom:20px}}
+
+/* ---------- catalog ---------- */
+.filters{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:34px}
+.chip{font-family:var(--display);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:16px;background:transparent;color:var(--mute);border:1px solid var(--line);padding:9px 18px;border-radius:999px;cursor:pointer;transition:all .2s}
+.chip:hover{color:var(--chalk);border-color:var(--mute)}
+.chip[aria-pressed="true"]{background:var(--chalk);color:var(--ink);border-color:var(--chalk)}
+.chip .n{opacity:.55;margin-left:6px;font-variant-numeric:tabular-nums}
+
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+@media (max-width:980px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:600px){.grid{grid-template-columns:1fr}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);display:flex;flex-direction:column;overflow:hidden;transition:transform .35s cubic-bezier(.2,.8,.2,1),border-color .3s,box-shadow .35s;min-width:0}
+.card:hover{transform:translateY(-6px);border-color:color-mix(in srgb,var(--lime) 55%,var(--line));box-shadow:0 22px 50px -20px color-mix(in srgb,var(--lime) 35%,transparent)}
+.card.hide{display:none}
+.shot{position:relative;aspect-ratio:5/4;display:grid;place-items:center;padding:26px;background:radial-gradient(70% 70% at 50% 58%,var(--panel-2),var(--ink) 92%);overflow:hidden}
+.shot::after{content:"";position:absolute;left:-20%;bottom:16%;width:60%;height:5px;background:var(--lime);transform:rotate(-23deg) translateX(-110%);transition:transform .5s cubic-bezier(.2,.8,.2,1);opacity:.9}
+.card:hover .shot::after{transform:rotate(-23deg) translateX(0)}
+.shot img{max-height:100%;width:auto;object-fit:contain;filter:drop-shadow(0 18px 22px rgba(0,0,0,.65));transition:transform .5s cubic-bezier(.2,.8,.2,1),opacity .25s;position:relative;z-index:1}
+.card:hover .shot img{transform:scale(1.06) rotate(-2deg)}
+.shot img.swap{opacity:0}
+.cat{position:absolute;top:14px;left:14px;z-index:2;font-family:var(--display);font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:13px;color:var(--mute);background:color-mix(in srgb,var(--ink) 70%,transparent);border:1px solid var(--line);padding:4px 10px;border-radius:999px}
+.info{padding:20px 22px 22px;display:flex;flex-direction:column;gap:10px;flex:1}
+.info h3{font-size:31px;font-weight:800;font-style:italic;text-transform:uppercase}
+.info p{margin:0;color:var(--mute);font-size:16px}
+.variant{font-family:var(--display);font-weight:600;text-transform:uppercase;letter-spacing:.06em;font-size:14px;color:var(--chalk)}
+.swatches{display:flex;flex-wrap:wrap;gap:8px}
+.sw{width:30px;height:30px;border-radius:50%;border:2px solid var(--line);cursor:pointer;padding:0;background:var(--c);position:relative;transition:transform .15s,border-color .15s}
+.sw:hover{transform:scale(1.1)}
+.sw[aria-pressed="true"]{border-color:var(--lime);box-shadow:0 0 0 3px var(--ink),0 0 0 5px var(--lime)}
+.brandrows{display:grid;gap:8px}
+.brandrow{display:flex;align-items:center;gap:10px}
+.brandrow span{font-family:var(--display);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:14px;color:var(--mute);min-width:8.5em}
+.dots{display:flex;gap:7px;flex-wrap:wrap}
+.dots i{width:18px;height:18px;border-radius:50%;background:var(--c);border:1px solid var(--line)}
+.levels{display:flex;gap:4px}
+.levels i{flex:1;height:8px;border-radius:2px;background:var(--c)}
+.levels-l{display:flex;justify-content:space-between;font-family:var(--display);font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--mute)}
+.info .btn{margin-top:auto;align-self:flex-start;font-size:15px;padding:10px 18px 9px}
+
+/* ---------- cta ---------- */
+.cta{position:relative;overflow:hidden;padding-block:110px;text-align:left}
+.cta h2{font-size:clamp(54px,10vw,140px);font-weight:900;font-style:italic;text-transform:uppercase;line-height:.88}
+.cta h2 span{color:var(--lime)}
+.cta p{color:var(--mute);font-size:19px;max-width:32em;margin:24px 0 32px}
+.cta .row{display:flex;gap:18px;flex-wrap:wrap;align-items:center}
+.handle{font-family:var(--display);font-weight:800;font-style:italic;font-size:28px;letter-spacing:.02em;user-select:all}
+.cta .slashes i:nth-child(1){top:22%;bottom:auto;left:auto;right:-12%;width:42%;transform-origin:right center}
+.cta .slashes i:nth-child(2){top:28%;bottom:auto;left:auto;right:-12%;width:26%;transform-origin:right center}
+
+footer{border-top:1px solid var(--line);padding-block:28px;color:var(--mute);font-size:15px}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+footer img{height:34px;width:auto}
+
+/* ---------- opening intro ---------- */
+#intro{position:fixed;inset:0;z-index:100;background:var(--ink);display:grid;place-items:center;overflow:hidden;pointer-events:none;animation:intro-out .42s cubic-bezier(.55,0,.45,1) 1.68s both}
+#intro img{width:min(62vw,420px);height:auto;position:relative;z-index:2;filter:drop-shadow(0 0 40px color-mix(in srgb,var(--lime) 55%,transparent));animation:logo-pass 2.1s cubic-bezier(.2,.8,.2,1) both}
+#intro i{position:absolute;left:-30%;width:160%;background:var(--lime);transform:rotate(-23deg) scaleX(0);transform-origin:left center;animation:bar-in .55s cubic-bezier(.2,.8,.2,1) both}
+#intro i:nth-of-type(1){height:16px;top:56%;animation-delay:.15s}
+#intro i:nth-of-type(2){height:5px;top:61%;opacity:.55;animation-delay:.25s}
+#intro i:nth-of-type(3){height:3px;top:38%;opacity:.3;animation-delay:.35s}
+@keyframes logo-pass{0%{transform:translateX(-120vw) skewX(-18deg) scale(.8);opacity:0}35%{transform:translateX(4vw) skewX(-6deg) scale(1.05);opacity:1}48%{transform:none}80%{transform:scale(1)}100%{transform:translateX(130vw) skewX(-18deg) scale(.9)}}
+@keyframes bar-in{to{transform:rotate(-23deg) scaleX(1)}}
+@keyframes intro-out{from{clip-path:polygon(0 0,130% 0,100% 100%,-30% 100%)}to{clip-path:polygon(130% 0,130% 0,100% 100%,100% 100%)}}
+#intro{clip-path:polygon(0 0,130% 0,100% 100%,-30% 100%)}
+.intro-on .hero h1 .w span{animation-delay:1.85s}
+.intro-on .hero h1 .w:nth-child(2) span{animation-delay:1.93s}
+.intro-on .hero h1 .w:nth-child(3) span{animation-delay:2.01s}
+.intro-on .slashes i{animation-delay:2.1s}
+
+/* scroll reveal: content stays visible, only slides into place */
+.rv{transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.rv.pre{transform:translateY(34px)}
+
+@media (prefers-reduced-motion:reduce){
+  #intro{display:none}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+  .rv.pre{transform:none}
+}
+</style>
+</head>
+<body>
+<div id="intro" aria-hidden="true"><i></i><i></i><i></i><img src="img/logo.webp" alt=""></div>
+<script>document.documentElement.classList.add("intro-on");setTimeout(()=>{const e=document.getElementById("intro");if(e)e.remove();},2300);</script>
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="nav-logo" href="#inicio" aria-label="DualSport, inicio"><img src="img/logo.webp" alt="DualSport" width="640" height="382"></a>
+    <nav class="nav-links" aria-label="Secciones">
+      <a href="#nosotros">Nosotras</a>
+      <a href="#historia">Historia</a>
+      <a href="#catalogo">Catálogo</a>
+      <a class="btn" href="https://ig.me/m/dualsp0rt" target="_blank" rel="noopener">Pide por DM</a>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio">
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-copy">
+        <span class="eyebrow">Artículos deportivos</span>
+        <h1><span class="w"><span>Equípate</span></span><span class="w"><span>para la</span></span><span class="w"><span class="l">cancha</span></span></h1>
+        <p class="lead">Calcetas antideslizantes, vendas, tapes, conos y bandas de entrenamiento. Todo lo que usas antes, durante y después del partido, en un solo lugar.</p>
+        <div class="hero-ctas">
+          <a class="btn" href="#catalogo">Ver catálogo
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="ghost" href="https://instagram.com/dualsp0rt" target="_blank" rel="noopener">@dualsp0rt en Instagram</a>
+        </div>
+      </div>
+      <div class="stage" aria-hidden="true">
+        <div class="slashes"><i></i><i></i><i></i></div>
+        <img class="s1" src="img/grip-fs-blanca.webp" alt="">
+        <img class="s2" src="img/cohesiva-roja.webp" alt="">
+        <img class="s3" src="img/platillos.webp" alt="">
+        <img class="logo-badge" src="img/logo.webp" alt="">
+      </div>
+    </div>
+  </section>
+
+  <div class="ticker-wrap" aria-hidden="true" title="Ver catálogo"><div class="ticker back"><div class="ticker-track" id="tkBack"></div></div><div class="ticker"><div class="ticker-sub" id="tkTop"></div><div class="ticker-track" id="ticker"></div><div class="ticker-sub" id="tkBot"></div></div></div>
+
+  <section class="block" id="nosotros">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow">Nosotras</span>
+        <h2>Dos amigas, <em>un equipo</em></h2>
+      </div>
+      <div class="about">
+        <div class="about-text rv">
+          <p>Somos dos buenas amigas que comparten el gusto por el deporte, y de esa amistad nació DualSport: una tienda de artículos deportivos que funciona por Instagram. Elegimos productos que se usan de verdad en la cancha y en el entrenamiento: <strong>agarre, soporte y preparación</strong>.</p>
+          <p>Comprar es simple. Ves el producto, nos escribes por mensaje directo y te contamos precio y disponibilidad al momento. Sin carritos ni formularios.</p>
+          <p>El nombre lo dice: <strong>Dual</strong> somos las dos, que llevamos este proyecto codo a codo. Y también es jugar en dos frentes: rendir en el partido y cuidarte para el siguiente.</p>
+        </div>
+        <div class="facts rv">
+          <div class="fact"><b>12</b><span>Productos<small>En 4 categorías, del fútbol al cuidado personal</small></span></div>
+          <div class="fact"><b>5</b><span>Niveles de resistencia<small>En las bandas cortas, de X-Light a X-Heavy</small></span></div>
+          <div class="fact"><b>1</b><span>Mensaje para pedir<small>Escríbenos por DM y coordinamos</small></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block story" id="historia">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow">Nuestra historia</span>
+        <h2>De una idea a <em>tu bolso</em></h2>
+      </div>
+      <div class="steps">
+        <article class="step rv">
+          <span class="tag">El comienzo</span>
+          <h3>Desde la cancha</h3>
+          <p>DualSport nació entre dos amigas y algo que vivíamos cada fin de semana: los accesorios buenos para jugar estaban repartidos en mil tiendas. Decidimos juntarlos en un solo lugar.</p>
+        </article>
+        <article class="step rv">
+          <span class="tag">La marca</span>
+          <h3>La DS con corona</h3>
+          <p>Creamos una identidad propia en negro, blanco y verde neón, con un logo que se mueve como el juego. Rápida, directa y fácil de reconocer.</p>
+        </article>
+        <article class="step rv">
+          <span class="tag">Hoy</span>
+          <h3>Catálogo completo</h3>
+          <p>Hoy tenemos grip socks de dos marcas, vendajes, tapes, material de entrenamiento y accesorios de cuidado personal, y seguimos sumando productos.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="catalogo">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow">Catálogo</span>
+        <h2>Elige tu <em>equipo</em></h2>
+        <p>Toca los colores para ver cada versión. Para precios y stock, escríbenos por DM.</p>
+      </div>
+      <div class="filters" id="filters" role="group" aria-label="Filtrar por categoría"></div>
+      <div class="grid" id="grid"></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="slashes" aria-hidden="true"><i></i><i></i></div>
+    <div class="wrap rv">
+      <span class="eyebrow">Pedidos</span>
+      <h2>¿Listo para<br><span>entrar a jugar?</span></h2>
+      <p>Escríbenos por mensaje directo en Instagram con el producto que quieres. Te respondemos con precio, colores disponibles y cómo recibirlo.</p>
+      <div class="row">
+        <a class="btn" href="https://ig.me/m/dualsp0rt" target="_blank" rel="noopener">Escribir por DM
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <span class="handle">@dualsp0rt</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="img/logo.webp" alt="DualSport" width="640" height="382">
+    <span>DualSport · Artículos deportivos · <a href="https://instagram.com/dualsp0rt" target="_blank" rel="noopener">@dualsp0rt</a></span>
+  </div>
+</footer>
+
+<script>
+const CATS = {futbol:"Fútbol", entreno:"Entrenamiento", vendajes:"Vendajes y tapes", cuidado:"Cuidado personal"};
+const P = [
+  {name:"Grip Socks", cat:"futbol", desc:"Calcetas antideslizantes con puntos de agarre en la planta. El pie no se mueve dentro del zapato.",
+   variants:[["FootballSocks negras","grip-fs-negra","#111"],["FootballSocks blancas","grip-fs-blanca","#f2f2f2"],["TapeDesign negras","grip-td-negra","#111"],["TapeDesign blancas","grip-td-blanca","#f2f2f2"]], labels:true},
+  {name:"Mini canilleras", cat:"futbol", img:"canilleras", desc:"Livianas y cómodas. Protección para entrenar y jugar sin sentir peso extra."},
+  {name:"Kinesio tape", cat:"vendajes", img:"kinesio", desc:"Vendas kinesiológicas para soporte muscular y articular.",
+   dots:["#111","#d9b38c","#1f6b4a","#c8202a","#f2f2f2","#3f86c9"], dotsLabel:"6 colores"},
+  {name:"Venda cohesiva", cat:"vendajes", desc:"Autoadherente: se pega a sí misma y no a la piel. Ideal para fijar y proteger.",
+   variants:[["Blanca","cohesiva-blanca","#f2f2f2"],["Roja","cohesiva-roja","#d31f24"],["Negra","cohesiva-negra","#111"]]},
+  {name:"Tape deportivo", cat:"vendajes", img:"tape-deportivo", desc:"Cinta rígida de algodón para fijar tobillos, muñecas y dedos."},
+  {name:"Bandas de resistencia", cat:"entreno", desc:"Bandas largas para fuerza, movilidad y ejercicios asistidos.",
+   variants:[["Negra","banda-negra","#111"],["Roja","banda-roja","#d31f24"],["Morada","banda-morada","#6b3fa0"],["Amarilla","banda-amarilla","#f3c316"]]},
+  {name:"Bandas elásticas cortas", cat:"entreno", img:"bandas-cortas", desc:"Set de 5 bandas para piernas y glúteos, una por nivel.",
+   levels:["#8cff1a","#2f5fcf","#f3c316","#d31f24","#111"]},
+  {name:"Platillos", cat:"entreno", img:"platillos", desc:"Conos platillo para marcar circuitos, zonas y ejercicios de velocidad.",
+   dots:["#f3c316","#8cd61a","#d31f24","#2f6fcf","#f2551f"], dotsLabel:"5 colores"},
+  {name:"Set cono y aros", cat:"entreno", img:"cono-aros", desc:"Juego de lanzamiento para trabajar coordinación y puntería."},
+  {name:"Coleros", cat:"cuidado", img:"coleros", desc:"Coleros negros para que el pelo no moleste en el partido. Bolsita de 5 unidades."},
+  {name:"Peines", cat:"cuidado", img:"peines", desc:"Peines blancos en varios modelos: de cola, de corte y de dientes finos."},
+  {name:"Cepillo barbero", cat:"cuidado", img:"cepillo", desc:"Cerdas firmes para limpiar el fade y la máquina."}
+];
+
+const DM = "https://ig.me/m/dualsp0rt";
+const arrow = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+const grid = document.getElementById("grid");
+
+P.forEach((p, i) => {
+  const first = p.variants ? p.variants[0] : null;
+  const src = "img/" + (first ? first[1] : p.img) + ".webp";
+  let extra = "";
+  if (p.variants) {
+    const sw = (v, k) => `<button class="sw" type="button" data-k="${k}" aria-pressed="${k===0}" aria-label="${v[0]}" title="${v[0]}" style="--c:${v[2]}"></button>`;
+    extra += `<span class="variant">${first[0]}</span>`;
+    if (p.labels) {
+      const brands = [...new Set(p.variants.map(v => v[0].split(" ")[0]))];
+      extra += `<div class="brandrows" role="group" aria-label="Versiones de ${p.name}">` + brands.map(br =>
+        `<div class="brandrow swatches"><span>${br}</span>` + p.variants.map((v, k) => v[0].startsWith(br) ? sw(v, k) : "").join("") + `</div>`).join("") + `</div>`;
+    } else {
+      extra += `<div class="swatches" role="group" aria-label="Versiones de ${p.name}">` + p.variants.map(sw).join("") + `</div>`;
+    }
+  }
+  if (p.dots) extra += `<div class="dots" aria-label="${p.dotsLabel}">${p.dots.map(c=>`<i style="--c:${c}"></i>`).join("")}</div><span class="variant">${p.dotsLabel}</span>`;
+  if (p.levels) extra += `<div class="levels" aria-hidden="true">${p.levels.map(c=>`<i style="--c:${c}"></i>`).join("")}</div><div class="levels-l"><span>X-Light</span><span>X-Heavy</span></div>`;
+  const el = document.createElement("article");
+  el.className = "card rv";
+  el.dataset.cat = p.cat;
+  el.innerHTML = `<div class="shot"><span class="cat">${CATS[p.cat]}</span><img src="${src}" alt="${p.name}${first ? ", " + first[0] : ""}"></div>
+    <div class="info"><h3>${p.name}</h3><p>${p.desc}</p>${extra}
+    <a class="btn" href="${DM}" target="_blank" rel="noopener">Pide por DM ${arrow}</a></div>`;
+  if (p.variants) {
+    const img = el.querySelector(".shot img"), label = el.querySelector(".variant");
+    el.querySelectorAll(".sw").forEach(b => b.addEventListener("click", () => {
+      const v = p.variants[+b.dataset.k];
+      el.querySelectorAll(".sw").forEach(x => x.setAttribute("aria-pressed", x === b));
+      label.textContent = v[0];
+      img.classList.add("swap");
+      setTimeout(() => { img.src = "img/" + v[1] + ".webp"; img.alt = p.name + ", " + v[0]; img.classList.remove("swap"); }, 180);
+    }));
+    p.variants.forEach(v => { const pre = new Image(); pre.src = "img/" + v[1] + ".webp"; });
+  }
+  grid.appendChild(el);
+});
+
+/* filters */
+const filters = document.getElementById("filters");
+const counts = P.reduce((a, p) => (a[p.cat] = (a[p.cat] || 0) + 1, a), {});
+[["all", "Todos", P.length], ...Object.entries(CATS).map(([k, v]) => [k, v, counts[k]])].forEach(([k, v, n], i) => {
+  const b = document.createElement("button");
+  b.type = "button"; b.className = "chip"; b.setAttribute("aria-pressed", i === 0);
+  b.innerHTML = `${v}<span class="n">${n}</span>`;
+  b.addEventListener("click", () => {
+    filters.querySelectorAll(".chip").forEach(x => x.setAttribute("aria-pressed", x === b));
+    grid.querySelectorAll(".card").forEach(c => c.classList.toggle("hide", k !== "all" && c.dataset.cat !== k));
+  });
+  filters.appendChild(b);
+});
+
+/* ticker */
+const track = document.getElementById("ticker");
+const tk = P.map(p => {
+  const img = p.variants ? p.variants[0][1] : p.img;
+  return `<a class="tk" href="#catalogo" tabindex="-1"><b>${p.name}</b></a>`;
+}).join("");
+track.innerHTML = tk + tk;
+const sub = ["DualSport","Artículos deportivos","Pide por DM","@dualsp0rt"];
+const subHtml = Array(5).fill(sub).flat().map(t => `<span>${t}</span>`).join("");
+["tkTop","tkBot"].forEach(id => document.getElementById(id).innerHTML = subHtml + subHtml);
+const back = Array(4).fill(["Precaución","Zona de juego","DualSport","Alto rendimiento"]).flat().map(t => `<span class="bk">${t}</span>`).join("");
+document.getElementById("tkBack").innerHTML = back + back;
+
+/* nav background on scroll */
+const nav = document.getElementById("nav");
+const onScroll = () => nav.classList.toggle("solid", window.scrollY > 20);
+addEventListener("scroll", onScroll, {passive:true}); onScroll();
+
+/* reveal: only items below the first screen get a slide-in; nothing is ever hidden */
+if ("IntersectionObserver" in window && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.remove("pre"); io.unobserve(e.target); } }), {rootMargin:"0px 0px -8% 0px"});
+  document.querySelectorAll(".rv").forEach((el, i) => {
+    if (el.getBoundingClientRect().top > innerHeight) { el.classList.add("pre"); el.style.transitionDelay = (el.classList.contains("card") ? (i % 3) * 70 : 0) + "ms"; io.observe(el); }
+  });
+}
+</script>
+</body>
+</html>
